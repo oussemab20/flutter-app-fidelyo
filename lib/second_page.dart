@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'log_in/login_view.dart';
+
 class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,10 @@ class SecondPage extends StatelessWidget {
             SizedBox(height: 40), // Add spacing between the text and button
             ElevatedButton(
               onPressed: () {
-                print('Button pressed');
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginView()),
+                );
               },
               child: Text('Get started'),
               style: ElevatedButton.styleFrom(
