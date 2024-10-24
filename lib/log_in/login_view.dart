@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../app_colors.dart';
 import 'login_controller.dart';
 import 'login_model.dart';
 
@@ -57,7 +59,7 @@ class _LoginViewState extends State<LoginView> {
                 children: [
                   Text(
                     'Email',
-                    style: TextStyle(fontSize: 18, color: Colors.purple, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 18, color: AppColors.secondary, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 5),
                   TextField(
@@ -75,7 +77,7 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(height: 5),
                   Text(
                     'Password',
-                    style: TextStyle(fontSize: 18, color: Colors.purple, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 18,color: AppColors.secondary, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 5),
                   TextField(
@@ -132,24 +134,133 @@ class _LoginViewState extends State<LoginView> {
                 ],
               ),
             ),
-            ElevatedButton(onPressed: (){},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple, // Purple background color
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25), // Rounded corners
+            SizedBox(height: 10),
+            Row(
+              children: [
+                Expanded(
+                  child: Divider(
+                    color: Colors.grey,
+                    thickness: 2,
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 15),
                 ),
-                child: Center( child: Text(
-                      'Login',
-                    style: TextStyle(
-                    fontSize: 18,
-                     fontWeight: FontWeight.bold,
-                     color: Colors.white,
+                Padding(padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  'Or With',
+                  style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold, fontSize: 17,),
                 ),
+                ),
+                Expanded(
+                  child: Divider(
+                    color: Colors.grey,
+                    thickness: 2,
+                  ),
+                ),
+              ],
             ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Align buttons evenly
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    // TODO: Add Google login functionality
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white, // White background
+                    side: BorderSide(color: Colors.grey, width: 2), // Grey border
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+                  ),
+                  child: Row(
+                    children: [
+                      FaIcon(FontAwesomeIcons.google, color: Colors.black),
+                      SizedBox(width: 20), // Space between icon and text
+                      Text(
+                        'Google',
+                        style: TextStyle(color: Colors.black), // Black text
+                      ),
+                    ],
+                  ),
                 ),
+                ElevatedButton(
+                  onPressed: () {
+                    // TODO: Add Facebook login functionality
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white, // White background
+                    side: BorderSide(color: Colors.grey, width: 2), // Grey border
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+                  ),
+                  child: Row(
+                    children: [
+                      FaIcon(FontAwesomeIcons.facebook, color: Colors.black),
+                      SizedBox(width: 20), // Space between icon and text
+                      Text(
+                        'Facebook',
+                        style: TextStyle(color: Colors.black), // Black text
+                      ),
+                    ],
+                  ),
                 ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Spacer(),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('New client? '),
+                  TextButton(
+                    onPressed: () {
+                      // TODO: Add functionality for registration
+                    },
+                    child: Text(
+                      'Register here',
+                      style: TextStyle(
+                        color: AppColors.secondary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: SizedBox(
+                width: 380,
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: AppColors.primaryGradient, // Apply the gradient here
+                    borderRadius: BorderRadius.circular(25), // Match the button's border radius
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent, // Make the button transparent to show the gradient
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 15),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white, // Keep the text color white
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
