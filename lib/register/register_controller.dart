@@ -8,6 +8,7 @@ class RegisterController {
 
   Future<void> registerUser(RegisterModel model) async {
     try {
+      // Create user in Firebase Authentication
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: model.email,
         password: model.password,
@@ -22,9 +23,11 @@ class RegisterController {
         'location': model.location,
         'zipCode': model.zipCode,
       });
+
+      print("User registered and details added to Firestore");
     } catch (e) {
-      print(e.toString());
-      // Handle errors appropriately
+      print("Error during registration: ${e.toString()}");
+      // Handle errors appropriately (e.g., show a message to the user)
     }
   }
 }
